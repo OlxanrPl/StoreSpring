@@ -20,4 +20,12 @@ public class Departments {
     @OneToMany(mappedBy = "departments", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JsonBackReference
     private Set<Products> productsSet;
+
+    @Override
+    public String toString() {
+        return "Departments{" +
+                "depId=" + depId +
+                ", depName='" + depName + '\'' +
+               '}';
+    }
 }

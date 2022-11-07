@@ -16,10 +16,16 @@ public class Buyers {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String name;
-    @OneToOne()
-    @JsonManagedReference
-
-    private Address address;
     @ManyToMany(mappedBy = "buyers")
+    @JsonManagedReference
     private Set<Products> productsSet;
+
+    @Override
+    public String toString() {
+        return "Buyers{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", productsSet=" + productsSet +
+                '}';
+    }
 }

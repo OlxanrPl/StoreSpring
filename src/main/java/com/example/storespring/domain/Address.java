@@ -12,11 +12,19 @@ import javax.persistence.*;
 @Table(name = "adress")
 public class Address {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    @OneToOne()
-    @JsonBackReference
+    @OneToOne(fetch = FetchType.LAZY)
+    @MapsId
     private Buyers buyers;
 
     private String description;
+
+    @Override
+    public String toString() {
+        return "Address{" +
+                "id=" + id +
+                ", buyers=" + buyers +
+                ", description='" + description + '\'' +
+                '}';
+    }
 }
